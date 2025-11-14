@@ -1,0 +1,11 @@
+{
+  "name": "mooddapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "emmanuel not devin haha",
+  "license": "ISC",
+  "description": "nice dapp"
+}

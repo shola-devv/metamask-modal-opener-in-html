@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <button id="connectBtn" class="Button">connect metamask</button>
+    <p id="status" class="p">Not connected!</p>
+    
+    <script>
+        const connectBtn = document.getElementById('connectBtn');
+        const status = document.getElementById('status');
+
+        connectBtn.onclick = async () => {
+            // Check if MetaMask is installed
+            if (typeof window.ethereum === 'undefined') {
+                status.textContent = "MetaMask is not installed!";
+                return;
+            }
+
+            try {
+                // Request account access
+                const accounts = await window.ethereum.request({
+                    method: "eth_requestAccounts"
+                });
+
+                const account = accounts[0];
+
+                status.textContent = "Connected: " + account;
+                console.log("Connected account:", account);
+
+            } catch (error) {
+                console.error(error);
+                status.textContent = "Connection failed!";
+            }
+        };
+    </script>
+</body>
+</html>
